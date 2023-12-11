@@ -1,3 +1,4 @@
+//最初の画面
 void title(){
   
   fill(0);

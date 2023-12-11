@@ -1,3 +1,4 @@
+//key操作
 void keyPressed(){
   
   if(keyCode == ENTER && scene == 0)  {
