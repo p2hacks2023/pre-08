@@ -1,7 +1,7 @@
 //がいこつのステージ
 void forest(){
 
-  background(0);
+  
   
   fill(255);
   rect(300,300,50,50);
