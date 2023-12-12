@@ -1,4 +1,4 @@
-import processing.sound. *;//音を入れるライブラリ
+//import processing.sound. *;//音を入れるライブラリ
 
 //setupに入れる
 //SoundFile  sound1, sound2, sound3, sound4, sound5;

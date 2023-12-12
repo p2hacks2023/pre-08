@@ -2,7 +2,7 @@
 void keyPressed(){
   
   if(keyCode == ENTER && scene == 0)  {
-    //print(1);
+
     scene = 1;
   }
   if(key == 'w') up = true;
