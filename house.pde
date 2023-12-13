@@ -1,5 +1,7 @@
 void house(){
 
+    
+  hero();
 
 
 }

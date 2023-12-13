@@ -1,0 +1,6 @@
+void grave(){
+
+   hero();
+
+
+}
