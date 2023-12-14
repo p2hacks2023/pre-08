@@ -4,6 +4,9 @@ void hero(){
     //以下は移動の挙動
    if (up == true) {
     h_y -= h_speed; 
+    
+    image(hero_front_1, h_x, h_y, 48, 48);
+    
   }
   if (down == true) {
     h_y += h_speed;

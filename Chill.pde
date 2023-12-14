@@ -11,11 +11,14 @@ boolean left,right,up,down = false; //主人公の移動（ｘ座標）と主人
 boolean c_left,c_right,c_up,c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
-
+PImage hero_front_1, hero_front_2, hero_front_3;
 
 
 void setup(){
   size(1280,800);
+  hero_front_1 = loadImage("picture/hero_front_1.png");
+  hero_front_2 = loadImage("picture/hero_front_2.png");
+  hero_front_3 = loadImage("picture/hero_front_3.png");
   
 }
 
