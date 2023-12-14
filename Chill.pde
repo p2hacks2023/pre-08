@@ -11,20 +11,33 @@ boolean left,right,up,down = false; //主人公の移動（ｘ座標）と主人
 boolean c_left,c_right,c_up,c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
-PImage hero_front_1, hero_front_2, hero_front_3;
+PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3;
 
 
 void setup(){
   size(1280,800);
-  hero_front_1 = loadImage("picture/hero_front_1.png");
-  hero_front_2 = loadImage("picture/hero_front_2.png");
-  hero_front_3 = loadImage("picture/hero_front_3.png");
+  //背景
+  b_forest = loadImage("picture/forest.png");
+  b_grave = loadImage("picture/grave.png");
+  //主人公のドット絵
+  hero_f_1 = loadImage("picture/hero_front_1.png");
+  hero_f_2 = loadImage("picture/hero_front_2.png");
+  hero_f_3 = loadImage("picture/hero_front_3.png");
+  hero_b_1 = loadImage("picture/hero_back_1.png");
+  hero_b_2 = loadImage("picture/hero_back_2.png");
+  hero_b_3 = loadImage("picture/hero_back_3.png");
+  hero_l_1 = loadImage("picture/hero_left_1.png");
+  hero_l_2 = loadImage("picture/hero_left_2.png");
+  hero_l_3 = loadImage("picture/hero_left_3.png");
+  hero_r_1 = loadImage("picture/hero_right_1.png");
+  hero_r_2 = loadImage("picture/hero_right_2.png");
+  hero_r_3 = loadImage("picture/hero_right_3.png");
   
 }
 
 void draw(){
   background(0);
-  
+       
   switch(scene) {
     case 0:
       title();

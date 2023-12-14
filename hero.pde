@@ -1,11 +1,15 @@
 // 主人公の挙動
 void hero(){
+  
+  //場外に出ないようにする
+  h_x = constrain(h_x, 0 , width - 48);
+  h_y = constrain(h_y, 0 , height - 48);
  
     //以下は移動の挙動
    if (up == true) {
     h_y -= h_speed; 
     
-    image(hero_front_1, h_x, h_y, 48, 48);
+    image(hero_f_1, h_x, h_y, 48, 48);
     
   }
   if (down == true) {
