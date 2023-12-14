@@ -17,7 +17,7 @@ void select_collision(){//ステージ移動の当たり判定
     fill(255,255,0);
   }
   
-  if(h_x >= 540 && h_x <= 540 + 200 && h_y >= height-150 && h_y <= height){//下枠
+  if(h_x >= 540 && h_x <= 540 + 200 - 48 && h_y >= height-150 - 48 && h_y <= height){//下枠
      scene =0; //当たったらタイトルに戻りたい　下
   }
 }
