@@ -9,11 +9,10 @@ void hero(){
    if (up == true) {
     h_y -= h_speed; 
     
-    image(hero_f_1, h_x, h_y, 48, 48);
-    
   }
   if (down == true) {
     h_y += h_speed;
+    image(h_f, h_x, h_y, 48, 48);
   }
   if (left == true) {
     h_x -= h_speed;
@@ -28,7 +27,7 @@ void hero(){
   if(c_down == true)h_y += h_speed; 
   if(c_left == true)h_x -= h_speed;
   if(c_right == true)h_x += h_speed;
-
+/*
 //ドット絵の切り替わり
   if( (h_x+h_y) % 2 == 0){
     fill(255,0,0);
@@ -38,4 +37,5 @@ void hero(){
      rect(h_x,h_y,48,48);
      print(2);
   }
+  */
 }

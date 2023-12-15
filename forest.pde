@@ -1,7 +1,7 @@
 //がいこつのステージ
 void forest(){
 
-  image(b_forest, 100, 100, 1280, 800);
+  background(b_forest);
   
   rect(300,300,50,50);
   limit_xy(h_x,h_y,300,300,50,50);
