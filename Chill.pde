@@ -1,3 +1,11 @@
+import gifAnimation.*;
+
+Gif heroFrontWalk;
+Gif heroBackWalk;
+Gif heroLeftWalk;
+Gif heroRightWalk;
+
+int frameskip =2;
 int scene = 99; //場面切り替え用
 int h_x = 100; //主人公の位置（x座標）
 int h_y = 100; //主人公の位置（y座標）
@@ -17,6 +25,7 @@ PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b
 
 void setup(){
   size(1280,800);
+  
   //背景
   b_forest = loadImage("picture/forest.png");
   b_grave = loadImage("picture/grave.png");
@@ -34,7 +43,17 @@ void setup(){
   hero_r_2 = loadImage("picture/hero_R_2.png");
   hero_r_3 = loadImage("picture/hero_R_3.png");
   //gif
-  h_f = loadImage("picture/h_f.gif");
+  frameRate(120);
+  heroFrontWalk = new Gif(this, "picture/walkingFront2.gif");
+  heroBackWalk = new Gif(this, "picture/walkingBack.gif");
+  heroLeftWalk = new Gif(this, "picture/walkingLeft2.gif");
+  heroRightWalk = new Gif(this, "picture/walkingRight2.gif");
+  heroFrontWalk.play();
+  heroBackWalk.play();
+  heroLeftWalk.loop();
+  heroRightWalk.loop();
+  frameRate(60);
+  
 }
 
 void draw(){
