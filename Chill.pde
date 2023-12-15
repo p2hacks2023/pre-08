@@ -6,7 +6,7 @@ Gif heroLeftWalk;
 Gif heroRightWalk;
 
 int frameskip =2;
-int scene = 99; //場面切り替え用
+int scene = 1; //場面切り替え用
 int h_x = 100; //主人公の位置（x座標）
 int h_y = 100; //主人公の位置（y座標）
 int h_speed = 2; //主人公の動く速さ
