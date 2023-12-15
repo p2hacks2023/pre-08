@@ -11,9 +11,11 @@
 //}
 
 void skelton(){
+    s_x = constrain(s_x, 0 , width - 48);
+    s_y = constrain(s_y, 0 , height - 48);
     limit_xy(s_x,s_y,300,300,50,50);
     a_collision(limit_xy(s_x,s_y,300,300,50,50),s_x,s_y,300,300,50,50);
-    print(a_left,a_right,a_up,a_down);
+    //print(a_left,a_right,a_up,a_down);
     
   if(a_up == true){
     s_y -= s_speed; 
@@ -39,6 +41,14 @@ void skelton(){
     if(chase(s_x,s_y) == 2) s_x += s_speed;
     if(chase(s_x,s_y) == 3) s_y -= s_speed;
     if(chase(s_x,s_y) == 4) s_y += s_speed;  
+    
+    rect(s_x,s_y,48,48);
+  }
+  if(flower_flag == true){
+    if(chase(s_x,s_y) == 1) s_x += s_speed;  
+    if(chase(s_x,s_y) == 2) s_x -= s_speed;
+    if(chase(s_x,s_y) == 3) s_y += s_speed;
+    if(chase(s_x,s_y) == 4) s_y -= s_speed;  
     
     rect(s_x,s_y,48,48);
   }
