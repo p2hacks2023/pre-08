@@ -5,10 +5,22 @@ void keyPressed(){
 
     scene = 1;
   }
-  if(key == 'w') up = true;
-  if(key == 'a') left = true;
-  if(key == 's') down = true;
-  if(key == 'd') right = true;
+  if(key == 'w') {
+    up = true;
+    before_flag = 1;
+  }
+  if(key == 'a'){ 
+    left = true;
+    before_flag = 2;
+  }
+  if(key == 's'){
+    down = true;
+    before_flag = 3;
+  }
+  if(key == 'd') {
+    right = true;
+    before_flag = 4;
+  }
   
 
 }

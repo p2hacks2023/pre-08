@@ -15,6 +15,7 @@ int s_speed = 1; //骸骨の速さ
 int enter_f=0; //森のフラグ
 int enter_h=0; //洋館のフラグ
 int enter_g=0;
+int before_flag = 1;
 boolean left,right,up,down = false; //主人公の移動（ｘ座標）と主人公の移動（ｙ座標）
 boolean c_left,c_right,c_up,c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定

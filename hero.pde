@@ -22,18 +22,28 @@ void hero(){
   }
   if (left == true) {
     h_x -= h_speed;
-    image(heroLeftWalk, h_x, h_y, 48, 48);
+    //image(heroLeftWalk, h_x, h_y, 48, 48);
+    if(down == false && up == false){
+      image(heroLeftWalk, h_x, h_y, 48, 48);
+    }
   }
   if (right == true) {
     h_x += h_speed;
-    image(heroRightWalk, h_x, h_y, 48, 48);
+    //image(heroRightWalk, h_x, h_y, 48, 48);
+    if(down == false && up == false){
+      image(heroRightWalk, h_x, h_y, 48, 48);
+    }
   }
   if(up == false && down == false && left == false && right == false){
+    if(before_flag == 3) image(hero_f_1, h_x, h_y, 48, 48);
+    if(before_flag == 1) image(hero_b_1, h_x, h_y, 48, 48);
+    if(before_flag == 2) image(hero_l_1, h_x, h_y, 48, 48);
+    if(before_flag == 4) image(hero_r_1, h_x, h_y, 48, 48);
     
   
   }
   
- 
+ //print(before_flag);
 //障害物にあたったときの挙動
   if(c_up == true) h_y -= h_speed; 
   if(c_down == true)h_y += h_speed; 
