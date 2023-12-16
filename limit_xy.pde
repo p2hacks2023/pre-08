@@ -65,25 +65,28 @@ void a_collision(boolean limit, int X, int Y, int x, int y,int wide,int high){
   }
   
 }
-int chase(int a_x, int a_y){
+int chase(int a_x, int a_y) {
   int dis_x = a_x - h_x;
   int dis_y = a_y - h_y;
 
   int abs_x = abs(dis_x);
   int abs_y = abs(dis_y);
-  //print(dis_x);
-  //print(dis_y);
-  //print(abs_x);
-  //print(abs_y);
-  if(abs_x >= abs_y && dis_x > 0){
-    return 1;
-  }else if(abs_x >= abs_y && dis_x < 0){
-    return 2;
-  }else if(abs_x <= abs_y && dis_y > 0){
-    return 3;
-  }else if(abs_x <= abs_y && dis_y < 0){
-    return 4;
-  }else{
-  return 0;
-}
+
+  if (abs_x == 0 && abs_y == 0) {
+    // プレイヤーとの座標が一致する場合
+    return 0; // あるいは、適切な値を返す
+  }
+
+  float angle = atan2(dis_y, dis_x);
+  float degrees = degrees(angle);
+
+  if (degrees > -45 && degrees <= 45) {
+    return 1; // 右方向
+  } else if (degrees > 45 && degrees <= 135) {
+    return 3; // 下方向
+  } else if (degrees > 135 || degrees <= -135) {
+    return 2; // 左方向
+  } else {
+    return 4; // 上方向
+  }
 }
