@@ -1,6 +1,7 @@
 //がいこつのステージ
 void forest(){
 
+
   background(b_forest);
   
 

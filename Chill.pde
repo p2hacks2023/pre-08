@@ -22,7 +22,7 @@ int boti_y_gap[] = {127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,
 //キャラクターのパラメーター
 int h_x = 600; //主人公の位置（x座標）
 int h_y = 600; //主人公の位置（y座標）
-int h_speed = 1; //主人公の動く速さ
+int h_speed = 10; //主人公の動く速さ
 int s_x =200;
 int s_y= 200; //骸骨の座標
 int s_speed = 2; //骸骨の速さ
@@ -55,6 +55,7 @@ boolean c_up = false;
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
+boolean escape,escape2 = false;
 
 PImage b_forest, b_grave, b_house, b_select, b_title,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;

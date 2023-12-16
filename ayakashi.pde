@@ -32,6 +32,7 @@ void skelton(){
     s_y += s_speed;
   }
   //当たり判定
+  if(flower_flag == false){
   for(int i = 0; i < tree_x.length; i++){
     if(( s_x+48 >= tree_x[i] &&  s_x <= tree_x[i]+tree_x_gap[i] && s_y+48 >= tree_y[i] && s_y <= tree_y[i]+tree_y_gap[i])){
       
@@ -39,75 +40,52 @@ void skelton(){
         s_x -= s_speed;
         
           if(s_y <= h_y){
-            print(1);         
+            //print(1);         
               s_y += s_speed; 
           }
           if(s_y > h_y){
-            print(2); 
+            //print(2); 
             s_y -= s_speed;
           }
       }
       if(s_x == tree_x[i]+tree_x_gap[i]){
         s_x += s_speed;
           if(s_y <= h_y){
-            print(3);
+            //print(3);
               s_y += s_speed;          
         }
           if(s_y > h_y){
-            print(4); 
+            //print(4); 
             s_y -= s_speed;
         }
       }
       if(s_y+48 == tree_y[i] ){
         s_y -= s_speed;
           if(s_x <= h_x){
-            print(5);
+            //print(5);
               s_x += s_speed;
         }
         if(s_x > h_x){
-          print(6);
+          //print(6);
               s_x -= s_speed;
         }
       }
       if(s_y == tree_y[i]+tree_y_gap[i] ){
         s_y += s_speed;
         if(s_x <= h_x){
-          print(7);
+          //print(7);
               s_x += s_speed;
         }
         if(s_x > h_x){
-          print(8);
+          //print(8);
               s_x -= s_speed;
         }
       }
     }
   }
+  }
   
-////静止時
-//  if(s_x == h_x && s_y == h_y){
-//    image(skl_f,s_x, s_y, 48, 48);
-//  }
- // //左に歩く
- // if(a_down == false && a_up == false){
- //   //print(1);
- //   if(a_left == false){
- //     image(sklLeftWalk, s_x, s_y, 48, 48);
- //    // print(1);
- //   }
- // //右に歩く
- //   if(a_right == false){
- //     image(sklRightWalk, s_x, s_y, 48, 48);
- //         //print(1);
- //  }
- //}
- // //上に歩く
- // if(a_up == true){
- //   image(sklFrontWalk, s_x, s_y, 48, 48);
- // }
- // //下に歩く
- // if(a_down == true){
- //   image(sklBackWalk, s_x, s_y, 48, 48);
- // }
+
   if(chase(s_x,s_y) == 1) image(sklLeftWalk, s_x, s_y, 48, 48);  
   if(chase(s_x,s_y) == 2) image(sklRightWalk, s_x, s_y, 48, 48); 
   if(chase(s_x,s_y) == 3) image(sklBackWalk, s_x, s_y, 48, 48); 
@@ -137,10 +115,37 @@ void skelton(){
     
   }
   if(flower_flag == true){
-    if(chase(s_x,s_y) == 1) s_x += s_speed;  
-    if(chase(s_x,s_y) == 2) s_x -= s_speed;
-    if(chase(s_x,s_y) == 3) s_y += s_speed;
-    if(chase(s_x,s_y) == 4) s_y -= s_speed;  
+    //if(chase(s_x,s_y) == 1) s_x += s_speed;  
+    //if(chase(s_x,s_y) == 2) s_x -= s_speed;
+    //if(chase(s_x,s_y) == 3) s_y += s_speed;
+    //if(chase(s_x,s_y) == 4) s_y -= s_speed;  
+      if(s_x >= 247 && escape == false &&  escape2 == false){
+        s_x -= s_speed;
+        
+      }
+      if(s_x <= 247 && s_y <= 620 && escape2 == false){
+        s_y += s_speed;
+        escape = true;
+      }
+      if(s_y >= 620 && escape == true && escape2 == false){
+        s_x += s_speed;
+        if(s_x >= 901){
+        escape2 = true;
+        s_x = 901;
+        }
+      }
+      print(escape2);
+      //if(escape2 == true){
+      //  s_x -= s_speed;
+      //}
+      
+      
+    
+      
+    
+    
+    
+    //println(s_x,s_y);
     
     //rect(s_x,s_y,48,48);
     if(h_x == s_x && h_y == s_y){
