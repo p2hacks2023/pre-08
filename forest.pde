@@ -26,9 +26,9 @@ void forest(){
       }
     }
   }
-  for(int i = 0; i < tree_x.length; i++){
-    rect(tree_x[i],tree_y[i],tree_x_gap[i],tree_y_gap[i]);
-  }
+  //for(int i = 0; i < tree_x.length; i++){
+  //  rect(tree_x[i],tree_y[i],tree_x_gap[i],tree_y_gap[i]);
+  //}
 
   
   hero();
