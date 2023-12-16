@@ -83,31 +83,35 @@ void skelton(){
     }
   }
   
-//静止時
-  if(s_x == h_x && s_y == h_y){
-    image(skl_f,s_x, s_y, 48, 48);
-  }
-  //左に歩く
-  if(a_down == false && a_up == false){
-    //print(1);
-    if(a_left == false){
-      image(sklLeftWalk, s_x, s_y, 48, 48);
-     // print(1);
-    }
-  //右に歩く
-    if(a_right == false){
-      image(sklRightWalk, s_x, s_y, 48, 48);
-          //print(1);
-   }
- }
-  //上に歩く
-  if(a_up == true){
-    image(sklFrontWalk, s_x, s_y, 48, 48);
-  }
-  //下に歩く
-  if(a_down == true){
-    image(sklBackWalk, s_x, s_y, 48, 48);
-  }
+////静止時
+//  if(s_x == h_x && s_y == h_y){
+//    image(skl_f,s_x, s_y, 48, 48);
+//  }
+ // //左に歩く
+ // if(a_down == false && a_up == false){
+ //   //print(1);
+ //   if(a_left == false){
+ //     image(sklLeftWalk, s_x, s_y, 48, 48);
+ //    // print(1);
+ //   }
+ // //右に歩く
+ //   if(a_right == false){
+ //     image(sklRightWalk, s_x, s_y, 48, 48);
+ //         //print(1);
+ //  }
+ //}
+ // //上に歩く
+ // if(a_up == true){
+ //   image(sklFrontWalk, s_x, s_y, 48, 48);
+ // }
+ // //下に歩く
+ // if(a_down == true){
+ //   image(sklBackWalk, s_x, s_y, 48, 48);
+ // }
+  if(chase(s_x,s_y) == 1) image(sklLeftWalk, s_x, s_y, 48, 48);  
+  if(chase(s_x,s_y) == 2) image(sklRightWalk, s_x, s_y, 48, 48); 
+  if(chase(s_x,s_y) == 3) image(sklBackWalk, s_x, s_y, 48, 48); 
+  if(chase(s_x,s_y) == 4) image(sklFrontWalk, s_x, s_y, 48, 48);
    
 //ヒヤシンスもってないときの挙動
   if(flower_flag == false){
