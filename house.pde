@@ -30,5 +30,14 @@ void house(){
     ghost1();//red
     ghost2();//green
 
+  if(flower_flag == false){
+    image(yellow,900, 150, 48, 48);
+  }
 
+  if(limit_xy(h_x,h_y,900,150,48,48) == true){
+    flower_flag = true; 
+  }
+  
+  
+  
 }

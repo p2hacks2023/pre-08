@@ -10,7 +10,7 @@ Gif sklLeftWalk;
 Gif sklRightWalk;
 
 int frameskip =2;
-int scene = 99; //場面切り替え用
+int scene = 0; //場面切り替え用
 int tree_x[] = {22,460,958,1114,120,682,326,814,1112,60,594,958,68,492,214,626,920,1112};
 int tree_y[] = {16,8,48,26,176,66,288,216,214,402,392,456,586,506,658,648,594,622};
 int tree_x_gap[] = {110,126,110,126,126,110,110,126,126,110,126,110,126,110,110,126,126,126};
@@ -20,8 +20,8 @@ int boti_y[] = {135,135,135,135,135,135,135,397,397,397,397,397,397,397,659,659,
 int boti_x_gap[] = {127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127};
 int boti_y_gap[] = {127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127};
 //キャラクターのパラメーター
-int h_x = 500; //主人公の位置（x座標）
-int h_y = 400; //主人公の位置（y座標）
+int h_x = 600; //主人公の位置（x座標）
+int h_y = 600; //主人公の位置（y座標）
 int h_speed = 1; //主人公の動く速さ
 int s_x =200;
 int s_y= 200; //骸骨の座標
@@ -56,8 +56,8 @@ boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 
-PImage b_forest, b_grave, b_house,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r;
+PImage b_forest, b_grave, b_house, b_select, b_title,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
+       pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;
 
 
 void setup(){
@@ -68,6 +68,8 @@ void setup(){
   b_forest = loadImage("picture/forest.png");
   b_grave = loadImage("picture/grave.png");
   b_house = loadImage("picture/house.png");
+  b_select = loadImage("picture/select.png");  
+  b_title = loadImage("picture/title.png");
   //主人公のドット絵
   hero_f_1 = loadImage("picture/hero_front_1.png");
   hero_f_2 = loadImage("picture/hero_front_2.png");
@@ -108,6 +110,10 @@ void setup(){
   kyo_f = loadImage("picture/kyon_front.png");
   kyo_r = loadImage("picture/kyon_r.png");
   kyo_l = loadImage("picture/kyon_l.png");
+  
+  //エンディング
+  end_t = loadImage("picture/go_time.png");
+  end_c = loadImage("picture/go_catch.png");
     
   //gif
   frameRate(120);
@@ -154,10 +160,14 @@ void draw(){
       //end();
     case 5:
       bad_end();
+      break;
     case 6:
       story_skelton();
+      break;
     case 99:
        select();
+       break;
+    
   }
   
 }
