@@ -130,12 +130,12 @@ void skelton(){
       }
       if(s_y >= 620 && escape == true && escape2 == false){
         s_x += s_speed;
-        if(s_x >= 901){
+        if(s_x >= 880){
         escape2 = true;
-        s_x = 901;
+        s_x = 880;
         }
       }
-      print(escape2);
+      //print(escape2);
       //if(escape2 == true){
       //  s_x -= s_speed;
       //}
@@ -150,9 +150,10 @@ void skelton(){
     
 
     //rect(s_x,s_y,48,48);
-    if(h_x == s_x && h_y == s_y){
+    if(limit_xy(h_x,h_y,s_x,s_y,48,48)){
       scene = 6;
     }
+    //print(limit_xy(h_x,h_y,s_x,s_y,48,48));
   }
   
   

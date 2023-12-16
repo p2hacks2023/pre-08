@@ -45,7 +45,7 @@ void select(){
 
 void load(){
   if(enter_f == 1){
-    h_x = 500;
+    h_x = 600;
     h_y = 500;
     scene = 1;
     enter_f = 0;
