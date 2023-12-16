@@ -8,26 +8,29 @@ boolean limit_xy(int X, int Y, int x, int y, int wide, int high){
   }
 }
 // 上の関数の発展バージョン、主人公用。壁にぶつかったら進めなくなる（）
-void collision(boolean limit, int X, int Y, int x, int y,int wide,int high){
+void collision(int X, int Y, int x, int y,int wide,int high){
   
-  if(limit == true){
+  if(( X+48 >= x &&  X <= x+wide && Y+48 >= y && Y <= y+high)){
+          //print(2);
+
     if(X+48 == x){
       c_left = true;
-      print(1);
+      //print(1);
     }
     if(X == x+wide){
       c_right = true;
-      print(2);
+      //print(2);
     }
     if(Y+48 == y){
       c_up = true;
-      print(3);
+      //print(3);
     }
     if(Y == y+high){
       c_down = true;
-      print(4);
+      //print(4);
     }
   }else{
+          //print(1);
     c_left = false;
     c_right = false;
     c_up = false;

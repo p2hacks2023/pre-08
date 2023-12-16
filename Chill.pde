@@ -5,14 +5,29 @@ Gif heroBackWalk;
 Gif heroLeftWalk;
 Gif heroRightWalk;
 
+
+
 int frameskip =2;
-int scene = 1; //場面切り替え用
-int h_x = 100; //主人公の位置（x座標）
-int h_y = 100; //主人公の位置（y座標）
+int scene = 0; //場面切り替え用
+int tree_x[] = {22,460,959,1114,120,683,328,814,1113,61,594,958,68,586,214,626,921,1112};
+int tree_y[] = {16,9,49,27,176,67,288,217,215,402,393,456,586,507,658,649,595,622};
+int tree_x_gap[] = {111,127,111,127,127,111,111,127,127,111,127,111,127,111,111,127,127,127};
+int tree_y_gap[] = {127,120,127,120,120,127,127,120,120,127,120,127,120,127,127,120,120,120};
+int h_x = 200; //主人公の位置（x座標）
+int h_y = 200; //主人公の位置（y座標）
 int h_speed = 2; //主人公の動く速さ
 int s_x =200;
 int s_y= 200; //骸骨の座標
 int s_speed = 1; //骸骨の速さ
+int g1_x =200;
+int g1_y= 200; //幽霊1の座標
+int g1_speed = 1; //幽霊1の速さ
+int g2_x =200;
+int g2_y= 200; //幽霊1の座標
+int g2_speed = 1; //幽霊1の速さ
+int k_x =200;
+int k_y= 200; //キョンシーの座標
+int k_speed = 1;//キョンシーの速さ
 int enter_f=0; //森のフラグ
 int enter_h=0; //洋館のフラグ
 int enter_g=0;
@@ -26,7 +41,7 @@ boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-       h_f;
+       h_f,pink,purple,red,white,yellow,blue;
 
 
 void setup(){
@@ -48,6 +63,14 @@ void setup(){
   hero_r_1 = loadImage("picture/hero_R_1.png");
   hero_r_2 = loadImage("picture/hero_R_2.png");
   hero_r_3 = loadImage("picture/hero_R_3.png");
+  //オブジェクト
+  pink = loadImage("picture/pink.png");
+  purple = loadImage("picture/purple.png");
+  red = loadImage("picture/red.png");
+  white = loadImage("picture/white.png");
+  yellow = loadImage("picture/yellow.png");
+  blue = loadImage("picture/blue.png");
+  
   //gif
   frameRate(120);
   heroFrontWalk = new Gif(this, "picture/walkingFront2.gif");
