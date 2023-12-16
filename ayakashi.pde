@@ -32,6 +32,29 @@ void skelton(){
     s_y += s_speed;
 
   }
+  //当たり判定
+  for(int i = 0; i < tree_x.length; i++){
+    
+    if(( s_x+48 >= tree_x[i] &&  s_x <= tree_x[i]+tree_x_gap[i] && s_y+48 >= tree_y[i] && s_y <= tree_y[i]+tree_y_gap[i])){
+      
+      if(s_x+48 == tree_x[i]){
+        s_x -= s_speed;
+        //print(2);
+      }
+      if(s_x == tree_x[i]+tree_x_gap[i]){
+        s_x += s_speed;
+        //print(3);
+      }
+      if(s_y+48 == tree_y[i] ){
+        s_y -= s_speed;
+        //print(4);
+      }
+      if(s_y == tree_y[i]+tree_x_gap[i] ){
+        s_y += s_speed;
+        //print(5);
+      }
+    }
+  }
   
   //静止時
   if(s_x == h_x && s_y == h_y){
@@ -129,7 +152,6 @@ void ghost2(){
       g2_x = constrain(g2_x, 0 , width - 48);
     g2_y = constrain(g2_y, 0 , height - 48);
 
-  
   //ヒヤシンスもってないときの挙動
   if(flower_flag == false){
     
@@ -137,8 +159,6 @@ void ghost2(){
     if(chase(g2_x,g2_y) == 2) g2_x += g2_speed;
     if(chase(g2_x,g2_y) == 3) g2_y -= g2_speed;
     if(chase(g2_x,g2_y) == 4) g2_y += g2_speed;  
-    
-    
     
     rect(g2_x,g2_y,48,48);
   }
@@ -182,8 +202,6 @@ void kyoncy(){
     if(chase(g2_x,g2_y) == 2) g2_x += g2_speed;
     if(chase(g2_x,g2_y) == 3) g2_y -= g2_speed;
     if(chase(g2_x,g2_y) == 4) g2_y += g2_speed;
-    
-    
     
     rect(g2_x,g2_y,48,48);
   }

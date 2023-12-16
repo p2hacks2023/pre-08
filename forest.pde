@@ -3,7 +3,7 @@ void forest(){
 
   background(b_forest);
   
-  rect(300,300,50,50);
+
   for(int i = 0; i < tree_x.length; i++){
     
     if(( h_x+48 >= tree_x[i] &&  h_x <= tree_x[i]+tree_x_gap[i] && h_y+48 >= tree_y[i] && h_y <= tree_y[i]+tree_y_gap[i])){
@@ -25,6 +25,9 @@ void forest(){
         //print(5);
       }
     }
+  }
+  for(int i = 0; i < tree_x.length; i++){
+    rect(tree_x[i],tree_y[i],tree_x_gap[i],tree_y_gap[i]);
   }
 
   
