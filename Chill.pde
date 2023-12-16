@@ -1,5 +1,5 @@
 import gifAnimation.*;
-//Gif用
+//Gif用//
 Gif heroFrontWalk;
 Gif heroBackWalk;
 Gif heroLeftWalk;
