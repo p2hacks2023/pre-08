@@ -20,6 +20,7 @@ void skelton(){
   if(a_up == true){
     s_y -= s_speed; 
     s_x += s_speed;
+    
   }
   if(a_down == true){
     s_y += s_speed;

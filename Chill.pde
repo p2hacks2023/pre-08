@@ -40,8 +40,8 @@ boolean c_up = false;
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
-PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-       h_f,pink,purple,red,white,yellow,blue;
+PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b;
+
 
 
 void setup(){
