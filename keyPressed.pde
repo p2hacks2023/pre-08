@@ -2,9 +2,15 @@
 void keyPressed(){
   
   if(keyCode == ENTER && scene == 0)  {
-
     scene = 99;
   }
+  
+  if(keyCode == ENTER && scene == 5)  {//gameoverから復帰
+    scene = 99;
+    h_x = 600;
+    h_y = 600;
+  }
+  
   if(key == 'w') {
     up = true;
     before_flag = 1;
@@ -21,8 +27,6 @@ void keyPressed(){
     right = true;
     before_flag = 4;
   }
-  
-
 }
 
 void keyReleased(){
