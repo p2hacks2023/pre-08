@@ -1,5 +1,5 @@
 import gifAnimation.*;
-//Gif用//
+//Gif用
 Gif heroFrontWalk;
 Gif heroBackWalk;
 Gif heroLeftWalk;
@@ -159,15 +159,19 @@ void draw(){
     case 4:
       //end();
     case 5:
-      bad_end();
+      bad_end(CatTime);
+      blkinout(1,0);
       break;
     case 6:
       story_skelton();
       break;
     case 99:
        select();
-       break;
-    
+       break; 
   }
   
 }
+
+
+//追加
+boolean CatTime=false;

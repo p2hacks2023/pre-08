@@ -1,10 +1,10 @@
 //key操作
 void keyPressed(){
   
-  if(keyCode == ENTER && scene == 0)  {
-
+  if(keyCode == ENTER && scene == 0 || scene == 5)  {
     scene = 99;
   }
+  
   if(key == 'w') {
     up = true;
     before_flag = 1;

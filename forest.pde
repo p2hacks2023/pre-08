@@ -35,6 +35,7 @@ void forest(){
 
   skelton();
 
+
   if(flower_flag == false){
     image(yellow,900, 150, 48, 48);
   }
