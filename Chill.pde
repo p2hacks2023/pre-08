@@ -137,5 +137,5 @@ void draw(){
     case 99:
        select();
   }
-  print(scene);
+  
 }
