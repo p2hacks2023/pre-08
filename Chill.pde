@@ -44,14 +44,8 @@ boolean c_up = false;
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
-<<<<<<< HEAD
-PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b;
-
-=======
 PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-       h_f,skl_f,skl_b,skl_l,skl_r;
->>>>>>> 993bfeb9250002ddc39dcc2fe2b5c65540106c6e
-
+        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r;
 
 void setup(){
   size(1280,800);
@@ -73,7 +67,6 @@ void setup(){
   hero_r_1 = loadImage("picture/hero_R_1.png");
   hero_r_2 = loadImage("picture/hero_R_2.png");
   hero_r_3 = loadImage("picture/hero_R_3.png");
-<<<<<<< HEAD
   //オブジェクト
   pink = loadImage("picture/pink.png");
   purple = loadImage("picture/purple.png");
@@ -81,12 +74,10 @@ void setup(){
   white = loadImage("picture/white.png");
   yellow = loadImage("picture/yellow.png");
   blue = loadImage("picture/blue.png");
-=======
   skl_f = loadImage("picture/skl_front1.png");//止まった時のドット絵
   skl_b = loadImage("picture/skl_back1.png");
   skl_l = loadImage("picture/skl_l1.png");
   skl_r = loadImage("picture/skl_r1.png");
->>>>>>> 993bfeb9250002ddc39dcc2fe2b5c65540106c6e
   
   //gif
   frameRate(120);

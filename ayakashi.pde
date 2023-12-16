@@ -43,12 +43,20 @@ void skelton(){
   }
   //左に歩く
   if(a_down == false && a_up == false){
-    image(sklLeftWalk, s_x, s_y, 48, 48);
-  }
+    //print(1);
+    if(a_left == false){
+      image(sklLeftWalk, s_x, s_y, 48, 48);
+     // print(1);
+
+    }
   //右に歩く
-  if(a_down == false && a_up == false && a_right == true){
-    image(sklRightWalk, s_x, s_y, 48, 48);
+    if(a_right == false){
+      image(sklRightWalk, s_x, s_y, 48, 48);
+          //print(1);
+
    }
+ }
+ 
   //上に歩く
   if(a_up == true){
     image(sklFrontWalk, s_x, s_y, 48, 48);
