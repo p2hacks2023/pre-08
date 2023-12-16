@@ -33,6 +33,9 @@ void grave(){
   }
 
   if(limit_xy(h_x,h_y,100, 240, 48, 48) == true){
+    if (flower_flag == false){
+    get_se.play();
+    }
     flower_flag = true; 
   }
 }

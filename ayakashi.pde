@@ -109,9 +109,13 @@ void skelton(){
     if(chase(s_x,s_y) == 4) {
       s_y += s_speed;
   } 
-    if(h_x == s_x && h_y == s_y){
+    if(h_x == s_x && h_y == s_y){//捕まる
       scene = 5;
+      if (forest_bgm.isPlaying()) {
+        forest_bgm.pause();  // または forest_bgm.stop();
+        catch_se.play();
     }
+}
     
   }
   if(flower_flag == true){
@@ -150,8 +154,13 @@ void skelton(){
     
 
     //rect(s_x,s_y,48,48);
-    if(limit_xy(h_x,h_y,s_x,s_y,48,48)){
+    if(limit_xy(h_x,h_y,s_x,s_y,48,48)){//捕まえた
+      com_se.play();
       scene = 6;
+      if (forest_bgm.isPlaying()) {
+        forest_bgm.pause();  // または forest_bgm.stop();
+    }
+    title_bgm.play();
     }
     //print(limit_xy(h_x,h_y,s_x,s_y,48,48));
   }
@@ -186,6 +195,10 @@ void ghost1(){//red
     
     if(h_x == g1_x && h_y == g1_y){
       scene = 5;
+      catch_se.play();
+       if (house_bgm.isPlaying()) {
+        house_bgm.pause();
+      }
     }
     
    // rect(g1_x,g1_y,48,48);
@@ -226,6 +239,10 @@ void ghost2(){//green
     
     if(h_x == g2_x && h_y == g2_y){
       scene = 5;
+        catch_se.play();
+       if (house_bgm.isPlaying()) {
+        house_bgm.pause();
+      }
     }
     //rect(g2_x,g2_y,48,48);
   }
@@ -282,10 +299,14 @@ void kyoncy(){
     //追いついたらゲームオーバー
     if(h_x == k_x && h_y == k_y){
       scene = 5;
+      catch_se.play();
+       if (grave_bgm.isPlaying()) {
+        grave_bgm.pause();
+      }
     }
    // rect(g1_x,g1_y,48,48);
   }
-   //なかったら
+   //あったら
    if(flower_flag == true){
     if(chase(k_x,k_y) == 1) k_x += k_speed;  
     if(chase(k_x,k_y) == 2) k_x -= k_speed;

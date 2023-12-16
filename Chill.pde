@@ -1,4 +1,6 @@
 import gifAnimation.*;
+import processing.sound. *;//音を入れるライブラリ
+
 //Gif用
 Gif heroFrontWalk;
 Gif heroBackWalk;
@@ -8,7 +10,10 @@ Gif sklFrontWalk;
 Gif sklBackWalk;
 Gif sklLeftWalk;
 Gif sklRightWalk;
+//音楽用
+SoundFile  get_se, catch_se, com_se, forest_bgm, title_bgm, grave_bgm, house_bgm;
 
+int i,m = 0;
 int frameskip =2;
 int scene = 0; //場面切り替え用
 int tree_x[] = {22,460,958,1114,120,682,326,814,1112,60,594,958,68,492,214,626,920,1112};
@@ -71,6 +76,14 @@ PImage b_forest, b_grave, b_house, b_select, b_title,hero_f_1, hero_f_2, hero_f_
 void setup(){
   size(1280,800);
   frameRate(120);
+  //音楽
+  get_se = new SoundFile(this, "sound/hya_get.mp3");//ヒヤシンスゲット
+  catch_se = new SoundFile(this, "sound/tukamaru.mp3");//捕まった
+  com_se = new SoundFile(this, "sound/comunication.mp3");//捕まえた
+  forest_bgm = new SoundFile(this, "sound/forest_bgm.mp3");//森
+  title_bgm = new SoundFile(this, "sound/title_bgm.mp3");//タイトルとセレクト
+  grave_bgm = new SoundFile(this,"sound/grave_bgm.mp3");//墓
+  house_bgm = new SoundFile(this,"sound/house_bgm.mp3");//洋館
   
   //背景
   b_forest = loadImage("picture/forest.png");

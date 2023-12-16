@@ -2,7 +2,6 @@
 void forest(){
   
 
-
   background(b_forest);
   
 
@@ -42,6 +41,9 @@ void forest(){
   }
 
   if(limit_xy(h_x,h_y,900,150,48,48) == true){
+    if (flower_flag == false){
+    get_se.play();
+    }
     flower_flag = true; 
   }
   //print(limit_xy(h_x,h_y,s_x,s_y,48,48));

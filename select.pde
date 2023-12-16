@@ -48,6 +48,10 @@ void load(){
     h_x = 600;
     h_y = 500;
     scene = 1;
+    if (title_bgm.isPlaying()) {
+        title_bgm.pause();
+      }
+    forest_bgm.play();
     enter_f = 0;
   }
   
@@ -55,6 +59,10 @@ void load(){
     h_x = 600;
     h_y = 700;
     scene = 2;
+    if (title_bgm.isPlaying()) {
+        title_bgm.pause();
+      }
+    house_bgm.play();
     enter_h = 0;
   }
 
@@ -62,7 +70,10 @@ void load(){
     h_x = 600;
     h_y = 700;
     scene = 3;
+    if (title_bgm.isPlaying()) {
+        title_bgm.pause();
+      }
+    grave_bgm.play();
     enter_h = 0;
   }
-
 }
