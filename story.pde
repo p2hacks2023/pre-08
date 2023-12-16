@@ -1,0 +1,3 @@
+void story_skelton(){
+  
+}
