@@ -40,7 +40,9 @@ int enter_f=0; //森のフラグ
 int enter_h=0; //洋館のフラグ
 int enter_g=0;
 int before_flag = 1;
-//int 
+int before_sx, before_sy;
+int before_time = 0;
+int after_time = 0;
 boolean left,right,up,down = false; //主人公の移動（ｘ座標）と主人公の移動（ｙ座標）
 boolean c_left = false;
 boolean c_right = false;

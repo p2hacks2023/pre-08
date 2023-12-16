@@ -40,51 +40,47 @@ void skelton(){
       if(s_x+48 == tree_x[i]){
         s_x -= s_speed;
         
-        if(s_y <= h_y){
-          print(1);
-          s_y += s_speed;
-        }
-        if(s_y > h_y){
-          print(2);
-          s_y -= s_speed;
-        }
-        //print(2);
+          if(s_y <= h_y){
+            print(1);         
+              s_y += s_speed; 
+          }
+          if(s_y > h_y){
+            print(2); 
+            s_y -= s_speed;
+          }
       }
       if(s_x == tree_x[i]+tree_x_gap[i]){
         s_x += s_speed;
           if(s_y <= h_y){
             print(3);
-          s_y += s_speed;
+              s_y += s_speed;          
         }
-        if(s_y > h_y){
-          print(4);
-          s_y -= s_speed;
+          if(s_y > h_y){
+            print(4); 
+            s_y -= s_speed;
         }
-        //print(3);
       }
       if(s_y+48 == tree_y[i] ){
         s_y -= s_speed;
           if(s_x <= h_x){
             print(5);
-          s_x -= s_speed;
+              s_x += s_speed;
         }
         if(s_x > h_x){
           print(6);
-          s_x += s_speed;
+              s_x -= s_speed;
         }
-        //print(4);
       }
-      if(s_y == tree_y[i]+tree_x_gap[i] ){
+      if(s_y == tree_y[i]+tree_y_gap[i] ){
         s_y += s_speed;
         if(s_x <= h_x){
           print(7);
-          s_x -= s_speed;
+              s_x += s_speed;
         }
         if(s_x > h_x){
           print(8);
-          s_x += s_speed;
+              s_x -= s_speed;
         }
-        //print(5);
       }
     }
   }
