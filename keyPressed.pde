@@ -3,7 +3,7 @@ void keyPressed(){
   
   if(keyCode == ENTER && scene == 0)  {
 
-    scene = 1;
+    scene = 99;
   }
   if(key == 'w') {
     up = true;
