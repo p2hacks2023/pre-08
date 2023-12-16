@@ -9,7 +9,6 @@ Gif sklBackWalk;
 Gif sklLeftWalk;
 Gif sklRightWalk;
 
-
 int frameskip =2;
 int scene = 99; //場面切り替え用
 int tree_x[] = {22,460,958,1114,120,682,326,814,1112,60,594,958,68,492,214,626,920,1112};
@@ -27,12 +26,18 @@ int h_speed = 1; //主人公の動く速さ
 int s_x =200;
 int s_y= 200; //骸骨の座標
 int s_speed = 2; //骸骨の速さ
-int g1_x =200;
+int g1_x =200; //redwomanが幽霊1
 int g1_y= 200; //幽霊1の座標
 int g1_speed = 1; //幽霊1の速さ
-int g2_x =800;//2のx座標
+int g2_x =800;//greenmanのx座標
 int g2_y= 200; //幽霊2の座標
 int g2_speed = 1; //幽霊2の速さ
+//幽霊たちの速さ調整用
+int interval_g1 = 60 * 3; // 3秒分のフレーム数
+int interval_g2 = 60 * 5; // 5秒分のフレーム数
+int lastTriggerFrame = 0;
+int lastTriggerFrame_g2 = 0;
+
 int k_x =200;
 int k_y= 200; //キョンシーの座標
 int k_speed = 1;//キョンシーの速さ
@@ -52,7 +57,7 @@ boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 
 PImage b_forest, b_grave, b_house,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r;
+        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r;
 
 
 void setup(){
@@ -88,8 +93,22 @@ void setup(){
   skl_b = loadImage("picture/skl_back1.png");
   skl_l = loadImage("picture/skl_l1.png");
   skl_r = loadImage("picture/skl_r1.png");
-
-  
+  //幽霊1 red
+  rw_b = loadImage("picture/wg_back.png");
+  rw_f = loadImage("picture/wg_front.png");
+  rw_r = loadImage("picture/wg_r.png");
+  rw_l = loadImage("picture/wg_l.png");
+  //幽霊2 green
+  gm_b = loadImage("picture/mg_back.png");
+  gm_f = loadImage("picture/mg_front.png");
+  gm_r = loadImage("picture/mg_r.png");
+  gm_l = loadImage("picture/mg_l.png");
+  //キョンシー
+  kyo_b = loadImage("picture/kyon_back.png");
+  kyo_f = loadImage("picture/kyon_front.png");
+  kyo_r = loadImage("picture/kyon_r.png");
+  kyo_l = loadImage("picture/kyon_l.png");
+    
   //gif
   frameRate(120);
   //プレイやー
@@ -110,7 +129,6 @@ void setup(){
   sklBackWalk.play();
   sklLeftWalk.loop();
   sklRightWalk.loop();
-  
   
   frameRate(60);
    

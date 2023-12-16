@@ -27,8 +27,8 @@ void house(){
   //}
 
     hero();
-    ghost1();
-    ghost2();
+    ghost1();//red
+    ghost2();//green
 
 
 }
