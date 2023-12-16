@@ -57,7 +57,7 @@ boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 
 PImage b_forest, b_grave, b_house,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r;
+       pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;
 
 
 void setup(){
@@ -108,6 +108,10 @@ void setup(){
   kyo_f = loadImage("picture/kyon_front.png");
   kyo_r = loadImage("picture/kyon_r.png");
   kyo_l = loadImage("picture/kyon_l.png");
+  
+  //エンディング
+  end_t = loadImage("picture/go_time.png");
+  end_c = loadImage("picture/go_catch.png");
     
   //gif
   frameRate(120);
@@ -154,10 +158,13 @@ void draw(){
       //end();
     case 5:
       bad_end();
+      break;
     case 6:
       story_skelton();
+      break;
     case 99:
        select();
+       break;
   }
   
 }

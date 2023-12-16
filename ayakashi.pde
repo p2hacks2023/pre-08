@@ -176,7 +176,7 @@ void ghost1(){//red
     if(chase(g1_x,g1_y) == 4) g1_y += g1_speed;  
     
     if(h_x == g1_x && h_y == g1_y){
-      scene = 6;
+      scene = 5;
     }
     
    // rect(g1_x,g1_y,48,48);
@@ -216,7 +216,7 @@ void ghost2(){//green
     if(chase(g2_x,g2_y) == 4) g2_y += g2_speed;  
     
     if(h_x == g2_x && h_y == g2_y){
-      scene = 6;
+      scene = 5;
     }
     //rect(g2_x,g2_y,48,48);
   }

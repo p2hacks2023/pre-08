@@ -26,8 +26,6 @@ void select(){
   hero();
   select_collision();
   
-  
-  
   //後で消す
   rect(540,0,200,150);//上の当たり判定枠
   rect(540,height-150,200,150);//下の当たり判定枠
