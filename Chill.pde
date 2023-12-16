@@ -50,8 +50,7 @@ boolean flower_flag = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 
 PImage b_forest, b_grave,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-       h_f,skl_f,skl_b,skl_l,skl_r;
-
+        pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r;
 
 
 void setup(){
@@ -74,12 +73,13 @@ void setup(){
   hero_r_1 = loadImage("picture/hero_R_1.png");
   hero_r_2 = loadImage("picture/hero_R_2.png");
   hero_r_3 = loadImage("picture/hero_R_3.png");
-  //pink = loadImage("picture/pink.png");
-  //purple = loadImage("picture/purple.png");
-  //red = loadImage("picture/red.png");
-  //white = loadImage("picture/white.png");
-  //yellow = loadImage("picture/yellow.png");
-  //blue = loadImage("picture/blue.png");
+  pink = loadImage("picture/pink.png");
+  purple = loadImage("picture/purple.png");
+  red = loadImage("picture/red.png");
+  white = loadImage("picture/white.png");
+  yellow = loadImage("picture/yellow.png");
+  blue = loadImage("picture/blue.png");
+
   skl_f = loadImage("picture/skl_front1.png");//止まった時のドット絵
   skl_b = loadImage("picture/skl_back1.png");
   skl_l = loadImage("picture/skl_l1.png");
