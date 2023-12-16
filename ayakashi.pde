@@ -115,6 +115,7 @@ void skelton(){
     
   }
   if(flower_flag == true){
+
     //if(chase(s_x,s_y) == 1) s_x += s_speed;  
     //if(chase(s_x,s_y) == 2) s_x -= s_speed;
     //if(chase(s_x,s_y) == 3) s_y += s_speed;
@@ -147,6 +148,7 @@ void skelton(){
     
     //println(s_x,s_y);
     
+
     //rect(s_x,s_y,48,48);
     if(h_x == s_x && h_y == s_y){
       scene = 6;
@@ -157,12 +159,12 @@ void skelton(){
 }
 
 void ghost1(){//red
-   g1_x = constrain(g1_x, 0 , width - 48);
-   g1_y = constrain(g1_y, 0 , height - 48);
+   g1_x = constrain(g1_x, 110 , 1150);
+   g1_y = constrain(g1_y, 60 , 670);
    
    // 3秒ごとの処理
   if (frameCount - lastTriggerFrame >= interval_g1) {
-    g1_speed = int(random(3)); // 幽霊1の速さ
+    g1_speed = int(random(2)); // 幽霊1の速さ
     println("g1_speed: " + g1_speed); // デバッグ用
     // 最終トリガーフレームを更新
     lastTriggerFrame = frameCount;
@@ -198,11 +200,11 @@ void ghost1(){//red
 }
 
 void ghost2(){//green
-    g2_x = constrain(g2_x, 0 , width - 48);
-    g2_y = constrain(g2_y, 0 , height - 48);
+    g2_x = constrain(g2_x, 110 , 1150);
+    g2_y = constrain(g2_y, 60 , 670);
     
     if(frameCount - lastTriggerFrame_g2 >= interval_g2) {
-      g2_speed = int(random(3)); // 幽霊2の速さ
+      g2_speed = int(random(2)); // 幽霊2の速さ
       println("g2_speed: " + g2_speed); // デバッグ用
       //最終トリガーフレームを更新
       lastTriggerFrame_g2 = frameCount;
@@ -214,7 +216,7 @@ void ghost2(){//green
   if(chase(g2_x,g2_y) == 4) image(gm_f, g2_x, g2_y, 48, 48);   
     
   //ヒヤシンスもってないときの挙動
-  if(flower_flag == false){
+  if(flower_flag2 == false){
     
     if(chase(g2_x,g2_y) == 1) g2_x -= g2_speed;  
     if(chase(g2_x,g2_y) == 2) g2_x += g2_speed;
@@ -226,7 +228,7 @@ void ghost2(){//green
     }
     //rect(g2_x,g2_y,48,48);
   }
-  if(flower_flag == true){
+  if(flower_flag2 == true){
     if(chase(g2_x,g2_y) == 1) g2_x += s_speed;  
     if(chase(g2_x,g2_y) == 2) g2_x -= s_speed;
     if(chase(g2_x,g2_y) == 3) g2_y += s_speed;
@@ -239,42 +241,77 @@ void ghost2(){//green
 
 void kyoncy(){
   
-    g2_x = constrain(g2_x, 0 , width - 48);
-    g2_y = constrain(g2_y, 0 , height - 48);
- 
+    k_x = constrain(k_x, 0 , width - 48);
+    k_y = constrain(k_y, 0 , height - 48);
+     
+ //画像
+  if(chase(k_x,k_y) == 1) image(kyo_l, k_x, k_y, 48, 48); 
+  if(chase(k_x,k_y) == 2) image(kyo_r, k_x, k_y, 48, 48);
+  if(chase(k_x,k_y) == 3) image(kyo_b, k_x, k_y, 48, 48);
+  if(chase(k_x,k_y) == 4) image(kyo_f, k_x, k_y, 48, 48);
     
-  if(a_up == true){
-    s_y -= s_speed; 
-    s_x += s_speed;
-  }
-  if(a_down == true){
-    s_y += s_speed;
-    s_x += s_speed;
-  }
-  if(a_left == true){
-    s_x -= s_speed;
-    s_y += s_speed;
-  }
-  if(a_right == true){
-    s_x += s_speed;
-    s_y += s_speed;
-  }
-  
-  //ヒヤシンスもってないときの挙動
-  if(flower_flag == false){
-    if(chase(g2_x,g2_y) == 1) g2_x -= g2_speed;  
-    if(chase(g2_x,g2_y) == 2) g2_x += g2_speed;
-    if(chase(g2_x,g2_y) == 3) g2_y -= g2_speed;
-    if(chase(g2_x,g2_y) == 4) g2_y += g2_speed;
+    //なかったら
+   if(flower_flag == false){
+    if(chase(k_x,k_y) == 1) k_x -= k_speed;  
+    if(chase(k_x,k_y) == 2) k_x += k_speed;
+    if(chase(k_x,k_y) == 3) k_y -= k_speed;
+    if(chase(k_x,k_y) == 4) k_y += k_speed;  
     
-    rect(g2_x,g2_y,48,48);
-  }
-  if(flower_flag == true){
-    if(chase(g2_x,g2_y) == 1) g2_x += s_speed;  
-    if(chase(g2_x,g2_y) == 2) g2_x -= s_speed;
-    if(chase(g2_x,g2_y) == 3) g2_y += s_speed;
-    if(chase(g2_x,g2_y) == 4) g2_y -= s_speed;   
+    if(frameCount - lastTriggerFrame_k >= interval_k) {
+      if(h_x <= width/2){
+        int k_x_tel = int(random(50,101)); // キョンシーの速さ;
+        k_x = h_x + k_x_tel;
+      }
+      if(h_y <= height /2){
+        int k_y_tel = int(random(50,101)); // キョンシーの速さ;
+        k_y = h_y + k_y_tel;
+      }
+      if(h_x >= width/2){
+        int k_x_tel = int(random(50,101)); // キョンシーの速さ;
+        k_x = h_x - k_x_tel;
+      }
+      if(h_y >= height /2){
+        int k_y_tel = int(random(50,101)); // キョンシーの速さ;
+        k_y = h_y - k_y_tel;
+      }
+      //最終トリガーフレームを更新
+      lastTriggerFrame_k = frameCount;
+   }
     
-    rect(g2_x,g2_y,48,48);
+    //追いついたらゲームオーバー
+    if(h_x == k_x && h_y == k_y){
+      scene = 5;
+    }
+   // rect(g1_x,g1_y,48,48);
+  }
+   //なかったら
+   if(flower_flag == true){
+    if(chase(k_x,k_y) == 1) k_x += k_speed;  
+    if(chase(k_x,k_y) == 2) k_x -= k_speed;
+    if(chase(k_x,k_y) == 3) k_y += k_speed;
+    if(chase(k_x,k_y) == 4) k_y -= k_speed;   
+   // rect(g1_x,g1_y,48,48);
+   
+   if(frameCount - lastTriggerFrame_k >= interval_k) {
+      if(h_x <= width/2){
+        int k_x_tel = int(random(60,101)); // キョンシーの速さ;
+        k_x = h_x + k_x_tel;
+      }
+      if(h_y <= height /2){
+        int k_y_tel = int(random(60,101)); // キョンシーの速さ;
+        k_y = h_y + k_y_tel;
+      }
+      if(h_x >= width/2){
+        int k_x_tel = int(random(60,101)); // キョンシーの速さ;
+        k_x = h_x - k_x_tel;
+      }
+      if(h_y >= height /2){
+        int k_y_tel = int(random(60,101)); // キョンシーの速さ;
+        k_y = h_y - k_y_tel;
+      }
+      //最終トリガーフレームを更新
+      lastTriggerFrame_k = frameCount;
+   }
+   
   }
 }

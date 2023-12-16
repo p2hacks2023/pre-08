@@ -37,10 +37,16 @@ int interval_g1 = 60 * 3; // 3秒分のフレーム数
 int interval_g2 = 60 * 5; // 5秒分のフレーム数
 int lastTriggerFrame = 0;
 int lastTriggerFrame_g2 = 0;
-
+//キョンシー
 int k_x =200;
 int k_y= 200; //キョンシーの座標
 int k_speed = 1;//キョンシーの速さ
+int interval_k = 60 * 7;
+int k_x_tel = 5;
+int k_y_tel = 5;
+int lastTriggerFrame_k = 0;
+
+//ステージ関連
 int enter_f=0; //森のフラグ
 int enter_h=0; //洋館のフラグ
 int enter_g=0;
@@ -54,6 +60,7 @@ boolean c_right = false;
 boolean c_up = false;
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
+boolean flower_flag2 = false; //花の有無判定
 boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
 boolean escape,escape2 = false;
 
@@ -143,7 +150,7 @@ void setup(){
 
 void draw(){
   background(0);
-       
+  //println(scene);
   switch(scene) {
     case 0:
       title();
@@ -153,9 +160,11 @@ void draw(){
       break; 
     case 2:
       house();
+       h_x = constrain(h_x, 110 , 1150);
+       h_y = constrain(h_y, 60, 670);
       break;
     case 3:
-      //grave();
+      grave();
       break;
     case 4:
       //end();
@@ -166,8 +175,11 @@ void draw(){
       story_skelton();
       break;
     case 99:
-       select();
-       break; 
+      select();
+      break;
+    case 999:
+     load();
+     break; 
   }
   
 }
