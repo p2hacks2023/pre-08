@@ -7,18 +7,16 @@ void hero(){
  
     //以下は移動の挙動
    if (up == true) {
-    h_y -= h_speed; 
-    image(heroBackWalk, h_x, h_y, 48, 48);
-    
+      h_y -= h_speed; 
+      if(down == false){
+        image(heroBackWalk, h_x, h_y, 48, 48);
+     }
   }
   if (down == true) {
     h_y += h_speed;
-    //if(frameCount % frameskip == 0){
-      //frameRate(120);
+    
     image(heroFrontWalk, h_x, h_y, 48, 48);
-          //frameRate(60);
-
-    //}
+    
   }
   if (left == true) {
     h_x -= h_speed;
@@ -30,7 +28,7 @@ void hero(){
   if (right == true) {
     h_x += h_speed;
     //image(heroRightWalk, h_x, h_y, 48, 48);
-    if(down == false && up == false){
+    if(down == false && up == false && left == false){
       image(heroRightWalk, h_x, h_y, 48, 48);
     }
   }
