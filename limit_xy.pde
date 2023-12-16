@@ -35,9 +35,9 @@ void collision(int X, int Y, int x, int y,int wide,int high){
     c_right = false;
     c_up = false;
     c_down = false;
-  }
-  
+  } 
 }
+
 void a_collision(boolean limit, int X, int Y, int x, int y,int wide,int high){
   
   if(limit == true){
