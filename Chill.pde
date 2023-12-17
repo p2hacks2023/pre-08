@@ -78,7 +78,7 @@ boolean a_left, a_right, a_up, a_down = false; //あやかしの衝突判定
 boolean escape, escape2 = false;
 
 PImage b_forest, b_grave, b_house, b_select, b_title, hero_f_1, hero_f_2, hero_f_3, hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-  pink, purple, red, white, yellow, blue, h_f, skl_f, skl_b, skl_l, skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;
+  pink, purple, red, white, yellow, blue, h_f, skl_f, skl_b, skl_l, skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c, endskl;
 
 
 void setup() {
@@ -171,6 +171,8 @@ void setup() {
   sklLeftWalk.loop();
   sklRightWalk.loop();
 
+  endskl = loadImage("picture/itimaie_skl.png");
+
   frameRate(60);
 }
 
@@ -208,6 +210,7 @@ void draw() {
     break;
   case 11:
     //background(0);
+     background(endskl);
     displayDialog(chapters.get(currentChapter).get(currentLine));
     print("b");
     break;
