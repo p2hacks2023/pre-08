@@ -142,16 +142,8 @@ void skelton(){
       //print(escape2);
       //if(escape2 == true){
       //  s_x -= s_speed;
-      //}
-      
-      
-    
-      
-    
-    
-    
+      //}         
     //println(s_x,s_y);
-    
 
     //rect(s_x,s_y,48,48);
     if(limit_xy(h_x,h_y,s_x,s_y,48,48)){//捕まえた
@@ -211,6 +203,13 @@ void ghost1(){//red
     if(chase(g1_x,g1_y) == 3) g1_y += g1_speed;
     if(chase(g1_x,g1_y) == 4) g1_y -= g1_speed;   
     
+    if(h_x == g1_x && h_y == g1_y){
+      scene = 13;
+        com_se.play();
+       if (house_bgm.isPlaying()) {
+        house_bgm.pause();
+      }
+    }
    // rect(g1_x,g1_y,48,48);
   }
 }
@@ -239,7 +238,7 @@ void ghost2(){//green
     if(chase(g2_x,g2_y) == 3) g2_y -= g2_speed;
     if(chase(g2_x,g2_y) == 4) g2_y += g2_speed;  
     
-    if(h_x == g2_x && h_y == g2_y){
+    if(h_x == g2_x && h_y == g2_y){//　捕まえられたとき
       scene = 5;
         catch_se.play();
        if (house_bgm.isPlaying()) {
@@ -254,6 +253,13 @@ void ghost2(){//green
     if(chase(g2_x,g2_y) == 3) g2_y += s_speed;
     if(chase(g2_x,g2_y) == 4) g2_y -= s_speed;   
     
+    if(h_x == g2_x && h_y == g2_y){
+      scene = 13;
+        com_se.play();
+       if (house_bgm.isPlaying()) {
+        house_bgm.pause();
+      }
+    }
     //rect(g2_x,g2_y,48,48);
   }
 }
@@ -315,7 +321,6 @@ void kyoncy(){
     if(chase(k_x,k_y) == 3) k_y += k_speed;
     if(chase(k_x,k_y) == 4) k_y -= k_speed;   
    // rect(g1_x,g1_y,48,48);
-   
    if(frameCount - lastTriggerFrame_k >= interval_k) {
       if(h_x <= width/2){
         int k_x_tel = int(random(60,101)); // キョンシーの速さ;
@@ -336,6 +341,12 @@ void kyoncy(){
       //最終トリガーフレームを更新
       lastTriggerFrame_k = frameCount;
    }
-   
+   if(h_x == k_x && h_y == k_y){
+      scene = 17;
+      com_se.play();
+       if (grave_bgm.isPlaying()) {
+        grave_bgm.pause();
+      }
+    }
   }
 }
