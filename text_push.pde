@@ -15,7 +15,7 @@ if (displayingDialog) {
           scene = 99;
         }
         if(ani_flag == 1){
-          scene = 1;
+          scene = 99;
         }
         if(ani_flag == 2){
           scene = 99;
