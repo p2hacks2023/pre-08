@@ -5,6 +5,9 @@ void displayDialog(String dialog) {
     currentChar++;
   }
 
-  //現在のセリフを表示
-  text(dialog.substring(0, currentChar), width / 2, height / 2);
+  if (currentChapter == 0) {
+    text(dialog.substring(0, currentChar), width / 2, height / 2);
+  } else {
+    text(dialog.substring(0, currentChar), width / 2, 650);
+  }
 }

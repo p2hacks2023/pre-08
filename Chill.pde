@@ -212,7 +212,7 @@ void draw() {
     break;
   case 11:
     //background(0);
-     background(endskl);
+    background(endskl);
     displayDialog(chapters.get(currentChapter).get(currentLine));
     print("b");
     break;
