@@ -32,6 +32,8 @@ void select(){
   hero();
   select_collision();
   flower_flag = false;
+   mlsum=0;
+ CatTime=false;
  
   ////後で消す
   //rect(540,0,200,150);//上の当たり判定枠
