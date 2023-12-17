@@ -17,6 +17,9 @@ if (displayingDialog) {
         if(ani_flag == 1){
           scene = 1;
         }
+        if(ani_flag == 2){
+          scene = 99;
+        }
 
         // 最後の章を表示したらセリフ表示モードを終了する
         //if (currentChapter >= chapters.size()) {

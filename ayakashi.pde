@@ -156,7 +156,9 @@ void skelton(){
     //rect(s_x,s_y,48,48);
     if(limit_xy(h_x,h_y,s_x,s_y,48,48)){//捕まえた
       com_se.play();
-      scene = 6;
+      displayingDialog = true;
+      ani_flag = 2;
+      scene = 12;
       if (forest_bgm.isPlaying()) {
         forest_bgm.pause();  // または forest_bgm.stop();
     }

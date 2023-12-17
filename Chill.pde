@@ -83,6 +83,7 @@ PImage b_forest, b_grave, b_house, b_select, b_title, hero_f_1, hero_f_2, hero_f
 
 void setup() {
   size(1280, 800);
+  setupData();
   frameRate(120);
 
   //日本語に変換
@@ -209,6 +210,9 @@ void draw() {
     //background(0);
     displayDialog(chapters.get(currentChapter).get(currentLine));
     print("b");
+    break;
+  case 12:
+    displayDialog(chapters.get(currentChapter).get(currentLine));
     break;
   case 99:
     select();
