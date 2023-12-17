@@ -87,7 +87,7 @@ void setup() {
   frameRate(120);
 
   //日本語に変換
-  customFont = createFont("HiraKakuPro", 32);
+  customFont = createFont("DotGothic16/DotGothic16-Regular.ttf", 32);
   textFont(customFont);
 
   //音楽
