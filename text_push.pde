@@ -1,5 +1,5 @@
 void mousePressed() {
-if (displayingDialog) {
+  if (displayingDialog) {
     // セリフの表示が完了している場合
     if (currentChar >= chapters.get(currentChapter).get(currentLine).length()) {
       currentLine++;
@@ -11,20 +11,15 @@ if (displayingDialog) {
         currentLine = 0;
         currentChar = 0;
         displayingDialog = false;
-        if(ani_flag == 0){
+        if (ani_flag == 0) {
           scene = 99;
         }
-        if(ani_flag == 1){
+        if (ani_flag == 1) {
           scene = 99;
         }
-        if(ani_flag == 2){
+        if (ani_flag == 2) {
           scene = 99;
         }
-
-        // 最後の章を表示したらセリフ表示モードを終了する
-        //if (currentChapter >= chapters.size()) {
-          //displayingDialog = false;
-        //}
       }
     }
   }

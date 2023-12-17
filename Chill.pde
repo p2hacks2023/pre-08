@@ -12,7 +12,7 @@ Gif sklLeftWalk;
 Gif sklRightWalk;
 //音楽用
 SoundFile  get_se, catch_se, com_se, forest_bgm, title_bgm, grave_bgm, house_bgm;
-
+//文章の表示用
 PFont customFont;
 ArrayList<ArrayList<String>> chapters;
 int ani_flag = 0;
@@ -21,13 +21,15 @@ int currentLine = 0;
 int currentChar = 0;
 int frameDelay = 2;
 boolean displayingDialog = true; //オープニングとエンディングのモード
-int i, m = 0;
-int frameskip =2;
+//機能用
+int i = 0;//bgm判定用
 int scene = 0; //場面切り替え用
+//木の座標
 int tree_x[] = {22, 460, 958, 1114, 120, 682, 326, 814, 1112, 60, 594, 958, 68, 492, 214, 626, 920, 1112};
 int tree_y[] = {16, 8, 48, 26, 176, 66, 288, 216, 214, 402, 392, 456, 586, 506, 658, 648, 594, 622};
 int tree_x_gap[] = {110, 126, 110, 126, 126, 110, 110, 126, 126, 110, 126, 110, 126, 110, 110, 126, 126, 126};
 int tree_y_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126};
+//墓の座標
 int boti_x[] = {30, 212, 394, 576, 758, 940, 1122, 120, 302, 484, 666, 848, 1030, 30, 212, 394, 576, 758, 940, 1122};
 int boti_y[] = {134, 134, 134, 134, 134, 134, 134, 396, 396, 396, 396, 396, 396, 396, 658, 658, 658, 658, 658, 658, 658};
 int boti_x_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126};
@@ -36,8 +38,8 @@ int boti_y_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 
 int h_x = 600; //主人公の位置（x座標）
 int h_y = 600; //主人公の位置（y座標）
 int h_speed = 2; //主人公の動く速さ
-int s_x =200;
-int s_y= 200; //骸骨の座標
+int s_x =200; //骸骨のx座標
+int s_y= 200; //骸骨のy座標
 int s_speed = 2; //骸骨の速さ
 int g1_x =200; //redwomanが幽霊1
 int g1_y= 200; //幽霊1の座標
@@ -48,36 +50,37 @@ int g2_speed = 1; //幽霊2の速さ
 //幽霊たちの速さ調整用
 int interval_g1 = 60 * 3; // 3秒分のフレーム数
 int interval_g2 = 60 * 5; // 5秒分のフレーム数
-int lastTriggerFrame = 0;
-int lastTriggerFrame_g2 = 0;
+int lastTriggerFrame = 0; // 時間計測用
+int lastTriggerFrame_g2 = 0;//時間計測用
 //キョンシー
 int k_x =200;
 int k_y= 200; //キョンシーの座標
 int k_speed = 1;//キョンシーの速さ
-int interval_k = 60 * 7;
-int k_x_tel = 5;
-int k_y_tel = 5;
-int lastTriggerFrame_k = 0;
+int interval_k = 60 * 7;//7秒ごとの計測
+int k_x_tel = 5;//テレポート範囲 x
+int k_y_tel = 5;//テレポート範囲 y
+int lastTriggerFrame_k = 0;// 時間計測用
 
 //ステージ関連
+//フラグ
 int enter_f=0; //森のフラグ
 int enter_h=0; //洋館のフラグ
-int enter_g=0;
+int enter_g=0; //墓のフラグ
 int before_flag = 1;
 int before_sx, before_sy;
 int before_time = 0;
 int after_time = 0;
 boolean left, right, up, down = false; //主人公の移動（ｘ座標）と主人公の移動（ｙ座標）
-boolean c_left = false;
-boolean c_right = false;
-boolean c_up = false;
+boolean c_left = false;//壁などの衝突判定
+boolean c_right = false;//
+boolean c_up = false;//
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean flower_flag2 = false; //花の有無判定
 boolean a_left, a_right, a_up, a_down = false; //あやかしの衝突判定
-boolean escape, escape2 = false;
-boolean CatTime=false;
-
+boolean escape, escape2 = false;//スケルトンの逃走用
+boolean CatTime=false;//時間
+//画像用
 PImage b_forest, b_grave, b_house, b_select, b_title, hero_f_1, hero_f_2, hero_f_3, hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
   pink, purple, red, white, yellow, blue, h_f, skl_f, skl_b, skl_l, skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c, endskl;
 
@@ -201,22 +204,23 @@ void draw() {
   case 4:
     //end();
   case 5:
-     bad_end(CatTime);
-      blkinout(1,0);
+    bad_end(CatTime);
+    blkinout(1, 0);
     break;
   case 6:
-    story_skelton();
+    story_skelton();//骸骨会話
     break;
   case 10:
     displayDialog(chapters.get(currentChapter).get(currentLine));
     break;
   case 11:
-    //background(0);
     background(endskl);
     displayDialog(chapters.get(currentChapter).get(currentLine));
-    print("b");
     break;
   case 12:
+    displayDialog(chapters.get(currentChapter).get(currentLine));
+    break;
+  case 17:
     displayDialog(chapters.get(currentChapter).get(currentLine));
     break;
   case 99:

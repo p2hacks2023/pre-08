@@ -5,7 +5,7 @@ void displayDialog(String dialog) {
     currentChar++;
   }
 
-  if (currentChapter == 0) {
+  if (currentChapter == 0) {//テキストを表示と位置
     text(dialog.substring(0, currentChar), width / 2, height / 2);
   } else {
     text(dialog.substring(0, currentChar), width / 2, 650);
