@@ -2,7 +2,7 @@
 void keyPressed(){
   
   if(keyCode == ENTER && scene == 0)  {
-    scene = 99;
+    scene = 10;
   }
   
   if(keyCode == ENTER && scene == 5)  {//gameoverから復帰

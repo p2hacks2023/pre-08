@@ -13,17 +13,25 @@ Gif sklRightWalk;
 //音楽用
 SoundFile  get_se, catch_se, com_se, forest_bgm, title_bgm, grave_bgm, house_bgm;
 
-int i,m = 0;
+PFont customFont;
+ArrayList<ArrayList<String>> chapters;
+int ani_flag = 0;
+int currentChapter = 0;
+int currentLine = 0;
+int currentChar = 0;
+int frameDelay = 2;
+boolean displayingDialog = true; //オープニングとエンディングのモード
+int i, m = 0;
 int frameskip =2;
 int scene = 0; //場面切り替え用
-int tree_x[] = {22,460,958,1114,120,682,326,814,1112,60,594,958,68,492,214,626,920,1112};
-int tree_y[] = {16,8,48,26,176,66,288,216,214,402,392,456,586,506,658,648,594,622};
-int tree_x_gap[] = {110,126,110,126,126,110,110,126,126,110,126,110,126,110,110,126,126,126};
-int tree_y_gap[] = {126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126};
-int boti_x[] = {30,212,394,576,758,940,1122,120,302,484,666,848,1030,30,212,394,576,758,940,1122};
-int boti_y[] = {134,134,134,134,134,134,134,396,396,396,396,396,396,396,658,658,658,658,658,658,658};
-int boti_x_gap[] = {126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126};
-int boti_y_gap[] = {126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126,126};
+int tree_x[] = {22, 460, 958, 1114, 120, 682, 326, 814, 1112, 60, 594, 958, 68, 492, 214, 626, 920, 1112};
+int tree_y[] = {16, 8, 48, 26, 176, 66, 288, 216, 214, 402, 392, 456, 586, 506, 658, 648, 594, 622};
+int tree_x_gap[] = {110, 126, 110, 126, 126, 110, 110, 126, 126, 110, 126, 110, 126, 110, 110, 126, 126, 126};
+int tree_y_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126};
+int boti_x[] = {30, 212, 394, 576, 758, 940, 1122, 120, 302, 484, 666, 848, 1030, 30, 212, 394, 576, 758, 940, 1122};
+int boti_y[] = {134, 134, 134, 134, 134, 134, 134, 396, 396, 396, 396, 396, 396, 396, 658, 658, 658, 658, 658, 658, 658};
+int boti_x_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126};
+int boti_y_gap[] = {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126};
 //キャラクターのパラメーター
 int h_x = 600; //主人公の位置（x座標）
 int h_y = 600; //主人公の位置（y座標）
@@ -59,37 +67,42 @@ int before_flag = 1;
 int before_sx, before_sy;
 int before_time = 0;
 int after_time = 0;
-boolean left,right,up,down = false; //主人公の移動（ｘ座標）と主人公の移動（ｙ座標）
+boolean left, right, up, down = false; //主人公の移動（ｘ座標）と主人公の移動（ｙ座標）
 boolean c_left = false;
 boolean c_right = false;
 boolean c_up = false;
 boolean c_down = false;//壁などの衝突判定用
 boolean flower_flag = false; //花の有無判定
 boolean flower_flag2 = false; //花の有無判定
-boolean a_left,a_right,a_up,a_down = false; //あやかしの衝突判定
-boolean escape,escape2 = false;
+boolean a_left, a_right, a_up, a_down = false; //あやかしの衝突判定
+boolean escape, escape2 = false;
 
-PImage b_forest, b_grave, b_house, b_select, b_title,hero_f_1, hero_f_2, hero_f_3,hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
-       pink,purple,red,white,yellow,blue,h_f,skl_f,skl_b,skl_l,skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;
+PImage b_forest, b_grave, b_house, b_select, b_title, hero_f_1, hero_f_2, hero_f_3, hero_b_1, hero_b_2, hero_b_3, hero_l_1, hero_l_2, hero_l_3, hero_r_1, hero_r_2, hero_r_3,
+  pink, purple, red, white, yellow, blue, h_f, skl_f, skl_b, skl_l, skl_r, rw_b, rw_f, rw_l, rw_r, gm_b, gm_f, gm_l, gm_r, kyo_f, kyo_b, kyo_l, kyo_r, end_t, end_c;
 
 
-void setup(){
-  size(1280,800);
+void setup() {
+  size(1280, 800);
   frameRate(120);
+
+  //日本語に変換
+  customFont = createFont("HiraKakuPro", 32);
+  textFont(customFont);
+
   //音楽
   get_se = new SoundFile(this, "sound/hya_get.mp3");//ヒヤシンスゲット
   catch_se = new SoundFile(this, "sound/tukamaru.mp3");//捕まった
   com_se = new SoundFile(this, "sound/comunication.mp3");//捕まえた
   forest_bgm = new SoundFile(this, "sound/forest_bgm.mp3");//森
   title_bgm = new SoundFile(this, "sound/title_bgm.mp3");//タイトルとセレクト
-  grave_bgm = new SoundFile(this,"sound/grave_bgm.mp3");//墓
-  house_bgm = new SoundFile(this,"sound/house_bgm.mp3");//洋館
-  
+  grave_bgm = new SoundFile(this, "sound/grave_bgm.mp3");//墓
+  house_bgm = new SoundFile(this, "sound/house_bgm.mp3");//洋館
+
   //背景
   b_forest = loadImage("picture/forest.png");
   b_grave = loadImage("picture/grave.png");
   b_house = loadImage("picture/house.png");
-  b_select = loadImage("picture/select.png");  
+  b_select = loadImage("picture/select.png");
   b_title = loadImage("picture/title.png");
   //主人公のドット絵
   hero_f_1 = loadImage("picture/hero_front_1.png");
@@ -131,11 +144,11 @@ void setup(){
   kyo_f = loadImage("picture/kyon_front.png");
   kyo_r = loadImage("picture/kyon_r.png");
   kyo_l = loadImage("picture/kyon_l.png");
-  
+
   //エンディング
   end_t = loadImage("picture/go_time.png");
   end_c = loadImage("picture/go_catch.png");
-    
+
   //gif
   frameRate(120);
   //プレイやー
@@ -156,43 +169,52 @@ void setup(){
   sklBackWalk.play();
   sklLeftWalk.loop();
   sklRightWalk.loop();
-  
+
   frameRate(60);
-   
 }
 
-void draw(){
+void draw() {
   background(0);
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  fill(255);
   //println(scene);
   switch(scene) {
-    case 0:
-      title();
-      break;  
-    case 1:
-      forest();
-      break; 
-    case 2:
-      house();
-       h_x = constrain(h_x, 110 , 1150);
-       h_y = constrain(h_y, 60, 670);
-      break;
-    case 3:
-      grave();
-      break;
-    case 4:
-      //end();
-    case 5:
-      bad_end();
-      break;
-    case 6:
-      story_skelton();
-      break;
-    case 99:
-      select();
-      break;
-    case 999:
-     load();
-     break; 
+  case 0:
+    title();
+    break;
+  case 1:
+    forest();
+    break;
+  case 2:
+    house();
+    h_x = constrain(h_x, 110, 1150);
+    h_y = constrain(h_y, 60, 670);
+    break;
+  case 3:
+    grave();
+    break;
+  case 4:
+    //end();
+  case 5:
+    bad_end();
+    break;
+  case 6:
+    story_skelton();
+    break;
+  case 10:
+    displayDialog(chapters.get(currentChapter).get(currentLine));
+    break;
+  case 11:
+    //background(0);
+    displayDialog(chapters.get(currentChapter).get(currentLine));
+    print("b");
+    break;
+  case 99:
+    select();
+    break;
+  case 999:
+    load();
+    break;
   }
-  
 }

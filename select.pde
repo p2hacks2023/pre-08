@@ -47,7 +47,9 @@ void load(){
   if(enter_f == 1){
     h_x = 600;
     h_y = 500;
-    scene = 1;
+        displayingDialog = true;
+    ani_flag =1;
+    scene = 11;
     if (title_bgm.isPlaying()) {
         title_bgm.pause();
       }
